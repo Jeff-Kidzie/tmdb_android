@@ -26,12 +26,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.kidzie.tmdb_app.R
 import com.kidzie.tmdb_app.data.Account
 
+@Suppress("UNUSED_PARAMETER")
 @Composable
-fun LandingScreen(modifier: Modifier = Modifier) {
-    val onClickCard = { }
+fun LandingScreen(modifier: Modifier = Modifier, navController: NavController) {
+    val onClickCard = {
+        navController.navigate(ScreenRoute.Home)
+    }
     val listAccount = listOf(
         Account(
             id = 1,
@@ -100,7 +105,7 @@ fun CardProfile(
 @Composable
 fun AddProfileCard(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .wrapContentSize()
             .padding(vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -125,14 +130,14 @@ fun AddProfileCard(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun LandingScreenPreview() {
-    LandingScreen()
+    val mockNavController = rememberNavController()
+    LandingScreen(navController = mockNavController)
 }
-
 
 @Preview
 @Composable
 fun CardProfilePreview() {
-    CardProfile(modifier = Modifier, idImage = R.drawable.profile_1, accountName = "John Doe")
+    CardProfile(idImage = R.drawable.profile_1, accountName = "John Doe")
 }
 
 @Preview
@@ -140,3 +145,4 @@ fun CardProfilePreview() {
 fun AddProfileCardPreview() {
     AddProfileCard()
 }
+
