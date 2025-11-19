@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     // Apply Hilt plugin and Kotlin Kapt plugin
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
@@ -52,6 +53,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
+
 
     // Coil (Compose image loading) - explicit coordinate
     implementation("io.coil-kt:coil-compose:2.4.0")
