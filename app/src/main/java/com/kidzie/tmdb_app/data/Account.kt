@@ -6,5 +6,5 @@ data class Account(
     val id: Int,
     val name: String,
 //    val avatarPath: String,
-    @DrawableRes val idImage: Int,
+    @param:DrawableRes val idImage: Int,
 )
