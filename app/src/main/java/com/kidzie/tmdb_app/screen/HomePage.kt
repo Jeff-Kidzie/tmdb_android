@@ -28,8 +28,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.kidzie.tmdb_app.R
 import com.kidzie.tmdb_app.ui.theme.AppTheme
+import com.kidzie.tmdb_app.viewmodel.HomeAction
+import com.kidzie.tmdb_app.viewmodel.HomeViewModel
 
 
 data class BottomNavigationItem(
@@ -39,6 +42,8 @@ data class BottomNavigationItem(
 
 @Composable
 fun HomeScreen() {
+    val homeViewModel: HomeViewModel = hiltViewModel()
+    homeViewModel.onAction(HomeAction.InitViewModel)
     Scaffold(
         topBar = {
             HomeTopBar()

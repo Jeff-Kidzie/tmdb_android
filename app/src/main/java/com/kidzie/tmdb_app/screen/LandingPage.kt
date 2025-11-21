@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.kidzie.tmdb_app.R
-import com.kidzie.tmdb_app.data.Account
+import com.kidzie.tmdb_app.data.model.Account
 
 @Suppress("UNUSED_PARAMETER")
 @Composable

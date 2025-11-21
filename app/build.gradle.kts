@@ -56,17 +56,23 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
 
-    // Coil (Compose image loading) - explicit coordinate
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    // Coil (Compose image loading)
+    implementation(libs.coil.compose)
 
-    // Retrofit for networking - explicit coordinates
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // Retrofit for networking
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.adapter.rxjava)
+    implementation(libs.okhttp.logging)
 
-    // Hilt for dependency injection - explicit coordinates
-    implementation("com.google.dagger:hilt-android:2.47")
-    // Register compiler with the kapt configuration
-    add("kapt", "com.google.dagger:hilt-compiler:2.47")
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Hilt for dependency injection
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    add("kapt", libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

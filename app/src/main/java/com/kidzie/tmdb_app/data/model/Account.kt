@@ -1,4 +1,4 @@
-package com.kidzie.tmdb_app.data
+package com.kidzie.tmdb_app.data.model
 
 import androidx.annotation.DrawableRes
 

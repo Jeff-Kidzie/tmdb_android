@@ -16,7 +16,9 @@ import com.kidzie.tmdb_app.screen.HomeScreen
 import com.kidzie.tmdb_app.screen.LandingScreen
 import com.kidzie.tmdb_app.screen.ScreenRoute
 import com.kidzie.tmdb_app.ui.theme.AppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
