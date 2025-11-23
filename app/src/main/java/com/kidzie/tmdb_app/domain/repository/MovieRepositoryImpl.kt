@@ -9,7 +9,7 @@ class MovieRepositoryImpl(
     private val localDataSource: LocalDataSource
 ) : MovieRepository, RemoteDataSource by remoteDataSource, LocalDataSource by localDataSource {
 
-    override suspend fun getDiscoverMovies(): List<Movie> {
-        return remoteDataSource.getDiscoverMovies()
-    }
+//    override suspend fun getDiscoverMovies(): Result<List<Movie>> {
+//        return remoteDataSource.getDiscoverMovies()
+//    }
 }

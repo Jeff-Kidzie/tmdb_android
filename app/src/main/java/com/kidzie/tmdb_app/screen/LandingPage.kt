@@ -34,9 +34,6 @@ import com.kidzie.tmdb_app.data.model.Account
 @Suppress("UNUSED_PARAMETER")
 @Composable
 fun LandingScreen(modifier: Modifier = Modifier, navController: NavController) {
-    val onClickCard = {
-        navController.navigate(ScreenRoute.Home)
-    }
     val listAccount = listOf(
         Account(
             id = 1,
@@ -68,7 +65,11 @@ fun LandingScreen(modifier: Modifier = Modifier, navController: NavController) {
                 }
                 val account = listAccount[index]
                 CardProfile(
-                    idImage = account.idImage, accountName = account.name, onClick = onClickCard
+                    idImage = account.idImage,
+                    accountName = account.name,
+                    onClick = {
+                        navController.navigate(ScreenRoute.Home(accountName = account.name))
+                    }
                 )
             }
         }

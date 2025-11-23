@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.kidzie.tmdb_app.R
 import com.kidzie.tmdb_app.ui.theme.AppTheme
@@ -41,12 +42,12 @@ data class BottomNavigationItem(
 )
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(accountName: String = "") {
     val homeViewModel: HomeViewModel = hiltViewModel()
     homeViewModel.onAction(HomeAction.InitViewModel)
     Scaffold(
         topBar = {
-            HomeTopBar()
+            HomeTopBar(accountName = accountName)
         },
         bottomBar = {
             BottomNavBar()
@@ -62,7 +63,7 @@ fun HomeScreen() {
 }
 
 @Composable
-fun HomeTopBar() {
+fun HomeTopBar(accountName: String = "") {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -70,7 +71,11 @@ fun HomeTopBar() {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = "For You")
+        if (accountName.isNotEmpty()) {
+            Text(text = "Welcome, $accountName", fontSize = 20.sp)
+        } else {
+            Text(text = "For You", fontSize = 20.sp)
+        }
         ImageTopBar(modifier = Modifier)
     }
 }
@@ -87,7 +92,7 @@ fun ImageTopBar(modifier: Modifier) {
 }
 
 @Composable
-fun BottomNavBar() {
+fun  BottomNavBar() {
     var selectedIndex by rememberSaveable {
         mutableStateOf(0)
     }

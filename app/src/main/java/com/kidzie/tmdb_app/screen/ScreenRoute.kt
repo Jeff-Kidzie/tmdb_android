@@ -8,5 +8,5 @@ sealed class ScreenRoute {
     data object Landing : ScreenRoute()
 
     @Serializable
-    data object Home : ScreenRoute()
+    data class Home(val accountName: String = "") : ScreenRoute()
 }

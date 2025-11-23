@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.kidzie.tmdb_app.screen.HomeScreen
 import com.kidzie.tmdb_app.screen.LandingScreen
 import com.kidzie.tmdb_app.screen.ScreenRoute
@@ -45,8 +46,9 @@ fun MainApp(innerPadding: PaddingValues) {
             LandingScreen(navController = navController)
         }
 
-        composable<ScreenRoute.Home> {
-            HomeScreen()
+        composable<ScreenRoute.Home> { backStackEntry ->
+            val route = backStackEntry.toRoute<ScreenRoute.Home>()
+            HomeScreen(accountName = route.accountName)
         }
 
     }
